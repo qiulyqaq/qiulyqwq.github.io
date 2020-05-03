@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://qiulyqwq.github.io</id>
     <title>Qiuly&apos;s Blog!</title>
-    <updated>2020-05-03T07:48:51.727Z</updated>
+    <updated>2020-05-03T08:46:19.673Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://qiulyqwq.github.io"/>
     <link rel="self" href="https://qiulyqwq.github.io/atom.xml"/>
@@ -11,8 +11,8 @@
     <rights>All rights reserved 2020, Qiuly&apos;s Blog!</rights>
     <entry>
         <title type="html"><![CDATA[「考试」Test-05.02]]></title>
-        <id>https://qiulyqwq.github.io/post/test-0503/</id>
-        <link href="https://qiulyqwq.github.io/post/test-0503/">
+        <id>https://qiulyqwq.github.io/post/test-0502/</id>
+        <link href="https://qiulyqwq.github.io/post/test-0502/">
         </link>
         <updated>2020-05-03T05:15:29.000Z</updated>
         <content type="html"><![CDATA[<!-- more -->
@@ -340,7 +340,69 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 <h2 id="rmt1-a-2"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mrow><mi mathvariant="normal">T</mi><mn>1</mn></mrow><mo>:</mo><mi mathvariant="normal">A</mi></mrow><annotation encoding="application/x-tex">\rm{T1} :A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">T</span><span class="mord mathrm">1</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathrm">A</span></span></span></span></span></h2>
 <p>咕咕咕</p>
 <h2 id="rmt2-b"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mrow><mi mathvariant="normal">T</mi><mn>2</mn></mrow><mo>:</mo><mi mathvariant="normal">B</mi></mrow><annotation encoding="application/x-tex">\rm{T2} :B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">T</span><span class="mord mathrm">2</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathrm">B</span></span></span></span></span></h2>
-<p>咕咕咕</p>
+<pre><code class="language-cpp">#include &lt;cstdio&gt;
+#include &lt;string&gt;
+#include &lt;string&gt;
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+
+const int N=2e5+5;
+const int M=325;
+const int mod=998244353;
+int n,m,q,a[N];
+
+inline int modpow(int x,int y,int res=1) {
+    for(;y;y&gt;&gt;=1,x=1ll*x*x%mod) if(y&amp;1) res=1ll*res*x%mod;
+    return res;
+}
+template &lt;typename _Tp&gt; inline void IN(_Tp&amp;x) {
+    char ch;bool flag=0;x=0;
+    while(ch=getchar(),!isdigit(ch)) if(ch=='-') flag=1;
+    while(isdigit(ch)) x=x*10+ch-'0',ch=getchar();
+    if(flag) x=-x;
+}
+
+int fac[N],inv[N],tmp[N],qaq[N];
+inline int C(int n,int m) {
+    if(n&lt;m||n&lt;0||m&lt;0) return 0;
+    return 1ll*fac[n]*inv[n-m]%mod*inv[m]%mod;
+}
+inline int calc(int l,int r,int i) {
+    if(l&gt;r) return 0;
+    return 1ll*((tmp[r-i]-tmp[l-i-1]+mod)%mod)*qaq[i]%mod;
+}
+int cnt,vis[N],F[M][N];
+inline int solve(int x,int k) {
+    if(!vis[k]) {
+        vis[k]=++cnt;
+        int res=0;
+        for(int i=m-1;i&gt;=1;--i)
+            F[cnt][i]=(res+1ll*C(i-k,n-k)*qaq[i]%mod)%mod,
+        res=(res+1ll*C(i-k-1,n-k-1)*qaq[i]%mod)%mod;
+    }
+    return F[vis[k]][x];
+}
+
+int k;
+int main() {
+    IN(n),IN(q),m=n&lt;&lt;1;
+    fac[0]=inv[0]=qaq[0]=1;
+    for(int i=1;i&lt;=m;++i) fac[i]=1ll*fac[i-1]*i%mod;
+    for(int i=1;i&lt;=m;++i) inv[i]=modpow(fac[i],mod-2);
+    for(int i=1;i&lt;=m;++i) qaq[i]=1ll*qaq[i-1]*modpow(2,mod-2)%mod;
+    for(int i=1;i&lt;=m;++i) tmp[i]=(tmp[i-1]+1ll*qaq[i]*C(i-1,n-1)%mod)%mod;
+    for(int i=1;i&lt;=q;++i) {
+        IN(k),a[0]=0,a[k+1]=m;
+        for(int j=1;j&lt;=k;++j) IN(a[j]);
+        int ans=0;
+        for(int j=0;j&lt;=k;++j) ans=(ans+calc(a[j]+1,a[j+1]-1,j))%mod;
+        ans=(ans+solve(a[k],k))%mod;
+        printf(&quot;%d\n&quot;,2ll*ans%mod);
+    }
+    return 0;
+}
+</code></pre>
 <h2 id="rmt3-c-2"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mrow><mi mathvariant="normal">T</mi><mn>3</mn></mrow><mo>:</mo><mi mathvariant="normal">C</mi></mrow><annotation encoding="application/x-tex">\rm{T3} :C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">T</span><span class="mord mathrm">3</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathrm">C</span></span></span></span></span></h2>
 <p>咕咕咕</p>
 <hr>
