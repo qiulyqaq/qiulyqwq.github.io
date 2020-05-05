@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://qiulyqwq.github.io</id>
     <title>Qiuly&apos;s Blog!</title>
-    <updated>2020-05-05T08:02:43.329Z</updated>
+    <updated>2020-05-05T08:45:48.046Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://qiulyqwq.github.io"/>
     <link rel="self" href="https://qiulyqwq.github.io/atom.xml"/>
@@ -58,7 +58,76 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 <hr>
 <h1 id="code">Code</h1>
 <h2 id="rmt1mansion"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mrow><mi mathvariant="normal">T</mi><mn>1</mn></mrow><mo>:</mo><mi mathvariant="normal">M</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">n</mi></mrow><annotation encoding="application/x-tex">\rm{T1}:Mansion</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">T</span><span class="mord mathrm">1</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathrm">M</span><span class="mord mathrm">a</span><span class="mord mathrm">n</span><span class="mord mathrm">s</span><span class="mord mathrm">i</span><span class="mord mathrm">o</span><span class="mord mathrm">n</span></span></span></span></span></h2>
-<p>咕咕咕</p>
+<pre><code class="language-cpp">/*CYJian txdy!*/
+#include &lt;cmath&gt;
+#include &lt;cstdio&gt;
+#include &lt;string&gt;   
+#include &lt;cstring&gt;
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+typedef long long ll;
+
+const int N=1.5e5+5;
+const int SqrtN=405;
+ll ans[N];
+int n,m,q,lim,block,a[N],b[N];
+int bel[N],bl[SqrtN],br[SqrtN];
+struct Node {int l,r,vl,vr,id;} p[N];
+
+template &lt;typename T&gt; inline void IN(T&amp;x) {
+    char ch;bool flag=0;x=0;
+    while(ch=getchar(),!isdigit(ch)) if(ch=='-') flag=1;
+    while(isdigit(ch)) x=x*10+ch-'0',ch=getchar();
+    if(flag) x=-x;
+}
+inline bool cmpl(Node a,Node b) {return a.l&lt;b.l;}
+inline bool cmpr(Node a,Node b) {return a.r&lt;b.r;}
+
+ll sum[N],_mx[SqrtN];
+inline void add(int x,int y) {sum[x]+=y,_mx[bel[x]]=max(_mx[bel[x]],sum[x]);}
+inline ll work(int l,int r,int vl,int vr) {
+    ll res=0;
+    int bvl=bel[vl],bvr=bel[vr];
+    if(bvl&lt;bvr) {
+        for(int i=bvl+1;i&lt;=bvr-1;++i) res=max(res,_mx[i]);
+        for(int i=vl;i&lt;=br[bvl];++i) res=max(res,sum[i]);
+        for(int i=bl[bvr];i&lt;=vr;++i) res=max(res,sum[i]);
+    } else
+        for(int i=vl;i&lt;=vr;++i) res=max(res,sum[i]);
+    for(int i=l;i&lt;=r;++i) sum[a[i]]+=b[i],(vl&lt;=a[i]&amp;&amp;a[i]&lt;=vr)?res=max(res,sum[a[i]]):0;
+    for(int i=l;i&lt;=r;++i) sum[a[i]]-=b[i];
+    return res;
+}
+
+int main() {
+    IN(n),IN(m),IN(q),block=sqrt(n);
+    for(int i=1;i&lt;=n;++i) IN(a[i]);
+    for(int i=1;i&lt;=n;++i) IN(b[i]);
+    for(int i=1;i&lt;=q;++i) IN(p[i].l),IN(p[i].r),IN(p[i].vl),IN(p[i].vr),p[i].id=i;
+    sort(p+1,p+q+1,cmpl);
+    for(int i=1;i&lt;=n||i&lt;=m;++i) bel[i]=i/block+1;
+    for(int i=1;i&lt;=n||i&lt;=m;++i) br[bel[i]]=i;
+    for(int i=max(n,m);i&gt;0;--i) bl[bel[i]]=i;
+    lim=bel[max(n,m)];
+    for(int l=1,r=1;r&lt;=q;++r)
+        if(bel[p[r].l]!=bel[p[r+1].l]) {
+            memset(sum,0,sizeof(sum)),
+            memset(_mx,0,sizeof(_mx));
+            int now=br[bel[p[r].l]]+1;
+            sort(p+l,p+r+1,cmpr);
+            while(p[l].r&lt;=br[bel[p[r].l]]&amp;&amp;l&lt;=r)
+                ans[p[l].id]=work(p[l].l,p[l].r,p[l].vl,p[l].vr),++l;
+            while(l&lt;=r) {
+                while(now&lt;=p[l].r) add(a[now],b[now]),++now;
+                ans[p[l].id]=work(p[l].l,br[bel[p[r].l]],p[l].vl,p[l].vr),++l;
+            }
+            l=r+1;
+        }
+    for(int i=1;i&lt;=q;++i) printf(&quot;%lld\n&quot;,ans[i]);
+    return 0;
+}
+</code></pre>
 <h2 id="rmt2permutation"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mrow><mi mathvariant="normal">T</mi><mn>2</mn></mrow><mo>:</mo><mi mathvariant="normal">P</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">m</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">n</mi></mrow><annotation encoding="application/x-tex">\rm{T2}:Permutation</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">T</span><span class="mord mathrm">2</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathrm">P</span><span class="mord mathrm">e</span><span class="mord mathrm">r</span><span class="mord mathrm">m</span><span class="mord mathrm">u</span><span class="mord mathrm">t</span><span class="mord mathrm">a</span><span class="mord mathrm">t</span><span class="mord mathrm">i</span><span class="mord mathrm">o</span><span class="mord mathrm">n</span></span></span></span></span></h2>
 <pre><code class="language-cpp">/*CYJian txdy!*/
 #include &lt;cstdio&gt;
