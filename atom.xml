@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://qiulyqwq.github.io</id>
     <title>Qiuly&apos;s Blog!</title>
-    <updated>2020-06-15T00:38:36.680Z</updated>
+    <updated>2020-06-15T06:58:44.405Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://qiulyqwq.github.io"/>
     <link rel="self" href="https://qiulyqwq.github.io/atom.xml"/>
@@ -462,7 +462,22 @@ int main() {
 <p>然后就 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi><mi>k</mi><mtext> </mtext><mn>8</mn><mo>→</mo><mi>r</mi><mi>k</mi><mtext> </mtext><mi mathvariant="normal">∞</mi></mrow><annotation encoding="application/x-tex">rk\ 8\rightarrow rk\ \infty</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace"> </span><span class="mord">8</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace"> </span><span class="mord">∞</span></span></span></span> 了。</p>
 <p>反正尽量考好吧我才初一，没拿到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">E</mi></mrow><annotation encoding="application/x-tex">\rm{E}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">E</span></span></span></span></span></span> 的话大不了被教育一顿然后去 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>w</mi><mi>h</mi><mi>k</mi></mrow><annotation encoding="application/x-tex">whk</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mord mathdefault">h</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 。</p>
 <p>下午什么都不想干，调了一下品酒大会的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>a</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">sam</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">a</span><span class="mord mathdefault">m</span></span></span></span> 做法，然后发现挂在了答案直接对 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 取 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>max</mi><mo>⁡</mo></mrow><annotation encoding="application/x-tex">\max</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mop">max</span></span></span></span> ......</p>
-<p>才发现自己居然还有活着的博客，然后写了写题解来更了发博。</p>
+<p>做点题写点题解，然后就过去了。</p>
+<p>鬼知道为什么兴趣点乱跑，先是计数然后又是字符串，现在对计数真的是一点兴趣都没有了......</p>
+<hr>
+<h2 id="day-5">Day -5</h2>
+<p>好慌啊好慌啊好慌啊。</p>
+<p>没睡好觉，明明今天是放假的。</p>
+<p>整个一天都在家里水，水 B 站水知乎，然后不知不觉一天就过去了。</p>
+<p>下午写了一下字符串问题，这个主席树优化建图好棒啊，写了两百来行也没调多久还是不错的，晚上过掉了，跑的巨慢。</p>
+<hr>
+<h2 id="day-4">Day -4</h2>
+<p>今天不考试，猜对了。</p>
+<p>准备上午划水，然后 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">C</mi><mi mathvariant="normal">Y</mi><mi mathvariant="normal">J</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">n</mi></mrow><annotation encoding="application/x-tex">\rm{CYJian}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">C</span><span class="mord mathrm" style="margin-right:0.025em;">Y</span><span class="mord mathrm">J</span><span class="mord mathrm">i</span><span class="mord mathrm">a</span><span class="mord mathrm">n</span></span></span></span></span></span> 拉了一点人一起打 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">C</mi><mi mathvariant="normal">F</mi></mrow><annotation encoding="application/x-tex">\rm{CF}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">C</span><span class="mord mathrm">F</span></span></span></span></span></span> 镜像赛。打了一上午，打到自闭，罚时吃到饱，垫底了。果然 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">Q</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">y</mi></mrow><annotation encoding="application/x-tex">\rm{Qiuly}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">Q</span><span class="mord mathrm">i</span><span class="mord mathrm">u</span><span class="mord mathrm">l</span><span class="mord mathrm" style="margin-right:0.01389em;">y</span></span></span></span></span></span> 不仅是传说中的挂分队长，还是罚时队长。</p>
+<p>中午终于出去吃饭了......我都记不清我有多久没出校门吃午饭了......</p>
+<p>说句闲话，挺讨厌来到很久之前的地方的，不喜欢去年的自己，更不喜欢去年每天中午打隔膜的地方。然后还是到那里吃饭了，以后不会来了，感觉时光倒流？反正就是很难受，没法说出的难受。</p>
+<p>现在，真好。</p>
+<p>水题解水题解，然后打算做点题，然后又看到别人的游记去了（/cy</p>
 ]]></content>
     </entry>
     <entry>
